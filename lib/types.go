@@ -11,14 +11,16 @@ type Color struct {
 	ASCII string
 }
 
-func colorizeString(c Color, s string) string {
+func colorizeString(clr string, s string) string {
 	switch {
-	case c.Red > 0:
+	case clr == "red":
 		return s + "\x1b[38;2;255;0;0m█\x1b[0m"
 
-	case c.Green > 0:
+	case clr == "green":
 		return s + "\x1b[38;2;0;255;0m█\x1b[0m"
 
+	case clr == "blue":
+		return s + "\x1b[38;2;0;0;255m█\x1b[0m"
 	default:
 		return s
 	}
